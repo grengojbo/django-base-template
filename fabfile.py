@@ -14,11 +14,12 @@ from fabric.operations import _prefix_commands, _prefix_env_vars
 #from fabric.context_managers import cd, lcd, settings, hide
 
 # CHANGEME
+env.home = '/opt/www'
 env.hosts = ['user@{{ project_name }}.example.com']
-env.code_dir = '/srv/www/{{ project_name }}'
-env.project_dir = '/srv/www/{{ project_name }}/{{ project_name }}'
-env.static_root = '/srv/www/{{ project_name }}/static/'
-env.virtualenv = '/srv/www/{{ project_name }}/.virtualenv'
+env.code_dir = "{0}/{{ project_name }}".format(env.home)
+env.project_dir = "{0}/{{ project_name }}/{{ project_name }}".format(env.home)
+env.static_root = "{0}/{{ project_name }}/static/".format(env.home)
+env.virtualenv = "{0}/{{ project_name }}/.virtualenv".format(env.home)
 env.code_repo = 'git@github.com:user/{{project_name}}.git'
 env.django_settings_module = '{{ project_name }}.settings'
 
